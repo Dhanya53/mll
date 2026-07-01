@@ -1,0 +1,248 @@
+lab 10
+git init
+git branch -M main
+git add .
+git remote add origin https://github.com/Dhanya53/project5.git
+>echo "# Hello Myproject" >README.md
+git add README.md
+git remote -v
+echo pipeline { agent any stages { stage('Checkout') { steps { git branch: 'main', url: 'https://github.com/username/repo.git', credentialsId: 'your-credential-id' } } } } > Jenkinsfile
+git add Jenkinsfile
+git commit -m "Add Jenkinsfile"
+git push origin main
+
+In VSCODE
+MAIN.PY
+def test_example():
+    assert 1 + 1 == 2
+python -m pip install pytest
+mvn run
+python -m pip install pytest
+
+lab9
+Index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h2>Task Manager</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button id="addTask">Add Task</button>
+
+    <h3>Tasks:</h3>
+    <ul id="taskList"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+script.js
+
+$(document).ready(function(){
+
+    // Add task
+    $("#addTask").click(function(){
+        let task = $("#taskInput").val();
+        if(task){
+            $("#taskList").append("<li>" + task + " <button class='remove'>Remove</button></li>");
+            $("#taskInput").val(""); // Clear input
+        }
+    });
+
+    // Remove task
+    $(document).on("click", ".remove", function(){
+        $(this).parent().remove();
+    });
+
+    // Retrieve all tasks
+    function getTasks(){
+        let tasks = [];
+        $("#taskList li").each(function(){
+            tasks.push($(this).text().replace(" Remove", ""));
+        });
+        return tasks;
+    }
+
+    // Log tasks whenever list changes
+    $("#taskList").on("DOMSubtreeModified", function(){
+        console.log("Current Tasks:", getTasks());
+    });
+
+});
+
+lab 08
+ Basic Docker Commands 
+1. Check Docker Version 
+docker --version 
+2. Pull an Image 
+docker pull nginx 
+3. List Images 
+docker images 
+4. Run a Container 
+docker run nginx 
+Run in detached mode: 
+docker run -d nginx 
+5. List Running Containers 
+docker ps
+List all containers: 
+docker ps -a 
+6. Stop a Container 
+docker stop container_id 
+7. Remove a Container 
+docker rm container_id 
+8. Remove an Image 
+docker rmi image_id 
+9. Execute Command Inside Container 
+docker exec -it container_id /bin/bash 
+10. Build Image from Dockerfile 
+docker build -t myimage .
+
+docker--version
+docker info
+docker pull nginx
+docker images
+docker run nginx
+docker run -d nginx
+docker ps
+docker ps -a
+docker stop container_id
+docker rm continer_id
+docker rmi nginx
+
+
+lab 07
+Code for pom.xml
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>MyProject</artifactId>
+    <version>1.0</version>
+
+</project>
+
+App.java
+package com.example;
+
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello Maven!");
+    }
+}
+
+git init
+ 
+git add .
+ git commit -m "update"
+
+lab 06
+describe('XPath Locator Test', () => {
+    it('should locate elements using XPath', async () => {
+        await browser.url('https://www.website.com/sign-in/?source=SC&country=IN');
+
+        const username = await $('//input[@id="username"]');
+        await username.setValue('MITM MYSORE');
+
+        const password = await $('//input[@id="password"]');
+        await password.setValue('Mitmys@123');
+
+        const loginBtn = await $('//button[@id="signin-submit2"]');
+        await loginBtn.click();
+    });
+});
+lab 05
+describe('Google Search Test', () => { 
+it('should open google and verify title', async () => { 
+await browser.url('https://www.google.com'); 
+const title = await browser.getTitle(); 
+console.log("Page Title is: " + title); 
+}); 
+}); 
+
+lab 02
+mkdir lab2
+cd lab2
+git init
+
+echo "Hello World" > file.txt
+
+git add .
+git commit -m "Initial commit"
+
+git branch conflict1
+git branch conflict2
+
+git checkout conflict1
+echo "Content from Branch 1" > file.txt
+git add .
+git commit -m "Updated by conflict1"
+
+git checkout conflict2
+echo "Content from Branch 2" > file.txt
+git add .
+git commit -m "Updated by conflict2"
+
+git checkout main
+git merge conflict1
+git merge conflict2
+
+git status
+
+# Open file.txt and remove conflict markers manually
+
+git add file.txt
+git commit -m "Resolved merge conflict"
+
+git checkout conflict1
+git rebase main
+
+git checkout conflict2
+git rebase main
+
+git log --oneline --graph --all
+ lab 02
+ Steps to Merge 
+Step 1: Create a new branch 
+git checkout -b feature 
+Step 2: Make changes and commit 
+echo "Feature added" >> file.txt 
+git add . 
+git commit -m "Added feature"
+Step 3: Switch to main branch 
+git checkout main 
+Step 4: Merge feature branch 
+git merge feature 
+Steps to Resolve Conflict 
+1. Open the file. 
+2. Remove conflict markers. 
+3. Edit the file manually. 
+4. Add and commit. 
+git add file.txt 
+git commit -m "Resolved merge conflict"
+ Steps to Rebase 
+Step 1: Switch to feature branch 
+git checkout feature 
+Step 2: Rebase onto main 
+git rebase main
+
+Output: 
+The commands executed successfully and expected output was observed. 
+Result: 
+Successfully automated project execution using Jenkins.\
+Output: 
+The commands executed successfully and expected output was observed. 
+Result: 
+Successfully created local and remote repository and pushed files to GitHub.
